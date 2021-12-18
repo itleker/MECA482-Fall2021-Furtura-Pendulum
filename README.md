@@ -167,7 +167,7 @@ For the linearization of Eq.7 and Eq.8, the initial conditions of all the variab
 The following equations display the matrix and determinant needed to calculate the angular acceleration of the rotary and pendulum arm. 
 
 <p align="center">
-  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630357-e9b0778c-7f59-4aee-9053-9bc50ca84b6b.JPG">
+  <img width="700" height="100" src="https://user-images.githubusercontent.com/96322953/146630357-e9b0778c-7f59-4aee-9053-9bc50ca84b6b.JPG">
 </p>
 
 <p align="center">
