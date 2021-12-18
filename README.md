@@ -189,7 +189,7 @@ By substituting x3 in for  and x4 in for  into the above equations, we get the f
 Finally, the matrices A and B from the state space Eq. __X__ is shown below in Eq.27.
 
 <p align="center">
-  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630726-7444538d-d4d3-44e6-8cd1-0c76f339f3e2.JPG">
+  <img width="800" height="400" src="https://user-images.githubusercontent.com/96322953/146630726-7444538d-d4d3-44e6-8cd1-0c76f339f3e2.JPG">
 </p>
 
 ## Simulations
@@ -199,7 +199,14 @@ The goal of this project was to create a control model that was designed to driv
 
 ## Appendix: Simulation Code
 <p align="center">
-  <img width="200" height="100" src="https://user-images.githubusercontent.com/96322953/146630827-cbe62ee6-01f7-4f24-b8f4-85e46be2c5b8.JPG">
+  <img width="1000" height="800" src="https://user-images.githubusercontent.com/96322953/146630827-cbe62ee6-01f7-4f24-b8f4-85e46be2c5b8.JPG">
 </p>
 
 ## Refernces
+[1] Wikipedia, Furuta Pendulum, Retrieved by Jan., 27, 2020 from https://en.wikipedia.org/wiki/Furuta_pendulum
+
+[2] Quanser, Rotary Inverted Pendulum, Retrieved by Jan, 27, 2020 from https://www.quanser.com/products/rotary-inverted-pendulum/
+ 
+[3] Control System Tutorials for MATLAB and Simulink, Retrieved by Jan, 27, 2020 from http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum§ion=SystemModelig 
+
+[4] Kildare, R., Hansen E., Leon, E., PID Control of Furuta Pendulum, Control System Design Project Fall 2019 
