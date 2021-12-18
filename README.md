@@ -45,8 +45,9 @@ Figure 2. Rotatry Inverted Pendulum Conventions
 ## Sensor Calibration
 The focus of this project is to design a functional control system, and simulate the results. Since there is no requirement for implementation of physical hardware, there is no sensor, or sensor calibration.
 
-## Contoller Design and Simulations
-  __a) Equations of Motions__
+## Contoller Design
+__a) Equations of Motions__
+  
 The Equations of Motion (EOM) section covers the derivation of equations that describe the motion of both the pendulum and rotary arms with respect to the motor voltage.  The full derivation of these equations begins with the Euler-Lagrange equation, seen below in Eq.1.
 
 <p align="center">
@@ -74,23 +75,23 @@ By combining equations 1 and 2, equations 3 and 4 are derived and shown below.__
 The Lagrangian of the system is equal to the total kinetic energy of the system minus the total potential energy of the system. It is denoted by the variable L in equations 1-4. The generalized forces acting on each arm ___Q1___, and ___Q2___, are equated to the non-conservative forces acting on each arm. Equations 5 and 6 show this relationship.
 
 <p align="center">
-  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628744-63742d1e-1bb7-4a80-998a-8c242b0a0b3e.JPG">
+  <img width="600" height="200" src="https://user-images.githubusercontent.com/96322953/146628744-63742d1e-1bb7-4a80-998a-8c242b0a0b3e.JPG">
 </p>
 
 The control variable for this system is the voltage input to the servo motor,___Vm___ . As a torque is applied to the servo, it is opposed by a viscous damping force from both arms. The viscous damping forces for the rotary and pendulum arms are ___Br___ and ___Bp___, respectively. After completing the process of obtaining the Lagrangian from the kinetic and potential energies and computing the various derivatives necessary to calculate the EOM’s, the nonlinear equations of motion are found for both arms. The EOM for the rotary arm is shown in Eq. 7 and the EOM for the pendulum arm is shown in Eq. 8.
 
 <p align="center">
-  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628841-5d275b02-fbe6-4083-bafb-f37283810320.JPG">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146628841-5d275b02-fbe6-4083-bafb-f37283810320.JPG">
 </p>
 
 <p align="center">
-  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146629002-6d0de230-b902-48b2-bcd9-f147985cf04c.JPG">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146629002-6d0de230-b902-48b2-bcd9-f147985cf04c.JPG">
 </p>
 
 The torque provided by the servo motor is applied at the base of the motor itself. Eq.9, shown below, describes the torque in terms of the servo motor input voltage Vm, among others.
 
 <p align="center">
-  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146629043-2daea252-52ea-40e3-988f-8748f3de9346.JPG">
+  <img width="600" height="100" src="https://user-images.githubusercontent.com/96322953/146629043-2daea252-52ea-40e3-988f-8748f3de9346.JPG">
 </p>
 
 The typical form of an EOM is shown in Eq.10, where ___Tau1___ is the scale value of torque applied to the rotary arm via the servo motor, ___g(x)___ describes the gravitational function affecting the system, bis the damping coefficient, and ___J___ is the moment of inertia of the system.
@@ -109,48 +110,49 @@ where the inertial matrix is represented by ___D___, the damping matrix is repre
 
 Finally, the nonlinear EOM’s shown in Eq.7 and Eq.8 can be placed into the matrix form derived above in Eq. 11.
 
-  __b) Linearization__
+__b) Linearization__
+  
 In order to linearize the EOM’s for both arms, Eq. 10 is used,
 
 <p align="center">
-  <img width="600" height="100" src="https://user-images.githubusercontent.com/96322953/146629575-2ff3a70c-4051-428c-bcf3-f3edb032ee90.JPG">
+  <img width="800" height="100" src="https://user-images.githubusercontent.com/96322953/146629575-2ff3a70c-4051-428c-bcf3-f3edb032ee90.JPG">
 </p>
 
 where
 
 <p align="center">
-  <img width="300" height="100" src="https://user-images.githubusercontent.com/96322953/146629628-2699b908-904c-4837-8290-1b4d6123d5aa.JPG">
+  <img width="200" height="100" src="https://user-images.githubusercontent.com/96322953/146629628-2699b908-904c-4837-8290-1b4d6123d5aa.JPG">
 </p>
 
 and
 
 <p align="center">
-  <img width="300" height="100" src="https://user-images.githubusercontent.com/96322953/146629654-33972d41-d5c0-4163-bf8f-a975db7971fb.JPG">
+  <img width="200" height="100" src="https://user-images.githubusercontent.com/96322953/146629654-33972d41-d5c0-4163-bf8f-a975db7971fb.JPG">
 </p>
 
 __c) Linear State Space__
 In the equations for linear state space provided below, ___A___ , ___B___ , ___C___ and ___D___ denote the state space matrices while x denotes the state, and u denotes the control input to the system.
 
 <p align="center">
-  <img width="1000" height="200" src="https://user-images.githubusercontent.com/96322953/146630002-f2b52382-d373-4808-933c-b442f858b2e7.JPG">
+  <img width="1000" height="100" src="https://user-images.githubusercontent.com/96322953/146630002-f2b52382-d373-4808-933c-b442f858b2e7.JPG">
 </p>
 
 The state of the rotary pendulum system then becomes
 
 <p align="center">
-  <img width="500" height="200" src="https://user-images.githubusercontent.com/96322953/146630080-efc18948-2f84-4b6e-872c-734cab304cb1.JPG">
+  <img width="800" height="100" src="https://user-images.githubusercontent.com/96322953/146630080-efc18948-2f84-4b6e-872c-734cab304cb1.JPG">
 </p>
 
 And the output of the system becomes
 
 <p align="center">
-  <img width="1000" height="200" src="https://user-images.githubusercontent.com/96322953/146630114-075e3821-4ba7-4e21-bc6a-7758fcb2b624.JPG">
+  <img width="800" height="100" src="https://user-images.githubusercontent.com/96322953/146630114-075e3821-4ba7-4e21-bc6a-7758fcb2b624.JPG">
 </p>
 
 Since only the positions of the servo and the angle of the arms are taken into account in terms of measured variables, the ___C___ and ___D___ matrices corresponding to the output equation are as follows:
 
 <p align="center">
-  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630171-cd0eb666-1025-4509-941d-4ce1e52a8012.JPG">
+  <img width="700" height="200" src="https://user-images.githubusercontent.com/96322953/146630171-cd0eb666-1025-4509-941d-4ce1e52a8012.JPG">
 </p>
 
 By taking the derivatives and filtering the results through a high-pass filter using the digital controller the velocities of both the servo and pendulum can be found.
@@ -190,10 +192,14 @@ Finally, the matrices A and B from the state space Eq. __X__ is shown below in E
   <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630726-7444538d-d4d3-44e6-8cd1-0c76f339f3e2.JPG">
 </p>
 
+## Simulations
+
 ## Conclusion
 The goal of this project was to create a control model that was designed to drive the Furuta Pendulum system. Ideally, the controller designed would be capable of driving the servo motor of the system to keep the pendulum arm balanced. This was accomplished by linearizing the equations of motion derived from the Euler-Lagrange equation. The linearized equations were then represented in state space and moved to a simulation in matlab.
 
 ## Appendix: Simulation Code
 <p align="center">
-  <src="https://user-images.githubusercontent.com/96322953/146630827-cbe62ee6-01f7-4f24-b8f4-85e46be2c5b8.JPG">
+  <img width="200" height="100" src="https://user-images.githubusercontent.com/96322953/146630827-cbe62ee6-01f7-4f24-b8f4-85e46be2c5b8.JPG">
 </p>
+
+## Refernces
