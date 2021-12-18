@@ -194,6 +194,14 @@ Finally, the matrices A and B from the state space Eq. __X__ is shown below in E
 
 ## Simulations
 
+<p align="center">
+  <img width="800" height="400" src="https://user-images.githubusercontent.com/96322953/146632877-f98d8a0f-a87d-4d41-b499-9345623f2d9f.png">
+</p>
+
+<p align="center">
+  <img width="800" height="400" src="https://user-images.githubusercontent.com/96322953/146632913-f0a993d6-1c65-456f-891c-d9550b6ddce2.png">
+</p>
+
 ## Conclusion
 The goal of this project was to create a control model that was designed to drive the Furuta Pendulum system. Ideally, the controller designed would be capable of driving the servo motor of the system to keep the pendulum arm balanced. This was accomplished by linearizing the equations of motion derived from the Euler-Lagrange equation. The linearized equations were then represented in state space and moved to a simulation in matlab.
 
