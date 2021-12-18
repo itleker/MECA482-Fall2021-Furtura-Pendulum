@@ -111,3 +111,89 @@ Finally, the nonlinear EOM’s shown in Eq.7 and Eq.8 can be placed into the mat
 
   __b) Linearization__
 In order to linearize the EOM’s for both arms, Eq. 10 is used,
+
+<p align="center">
+  <img width="600" height="100" src="https://user-images.githubusercontent.com/96322953/146629575-2ff3a70c-4051-428c-bcf3-f3edb032ee90.JPG">
+</p>
+
+where
+
+<p align="center">
+  <img width="300" height="100" src="https://user-images.githubusercontent.com/96322953/146629628-2699b908-904c-4837-8290-1b4d6123d5aa.JPG">
+</p>
+
+and
+
+<p align="center">
+  <img width="300" height="100" src="https://user-images.githubusercontent.com/96322953/146629654-33972d41-d5c0-4163-bf8f-a975db7971fb.JPG">
+</p>
+
+__c) Linear State Space__
+In the equations for linear state space provided below, ___A___ , ___B___ , ___C___ and ___D___ denote the state space matrices while x denotes the state, and u denotes the control input to the system.
+
+<p align="center">
+  <img width="1000" height="200" src="https://user-images.githubusercontent.com/96322953/146630002-f2b52382-d373-4808-933c-b442f858b2e7.JPG">
+</p>
+
+The state of the rotary pendulum system then becomes
+
+<p align="center">
+  <img width="500" height="200" src="https://user-images.githubusercontent.com/96322953/146630080-efc18948-2f84-4b6e-872c-734cab304cb1.JPG">
+</p>
+
+And the output of the system becomes
+
+<p align="center">
+  <img width="1000" height="200" src="https://user-images.githubusercontent.com/96322953/146630114-075e3821-4ba7-4e21-bc6a-7758fcb2b624.JPG">
+</p>
+
+Since only the positions of the servo and the angle of the arms are taken into account in terms of measured variables, the ___C___ and ___D___ matrices corresponding to the output equation are as follows:
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630171-cd0eb666-1025-4509-941d-4ce1e52a8012.JPG">
+</p>
+
+By taking the derivatives and filtering the results through a high-pass filter using the digital controller the velocities of both the servo and pendulum can be found.
+
+__d) Linearization of EOM__
+For the linearization of Eq.7 and Eq.8, the initial conditions of all the variables are set to equal 0. Under these conditions, the linearized equations Eq.19 and Eq. 20 are derived.
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630290-241b9ceb-5ffc-4837-bc7c-3a71ad484d60.JPG">
+</p>
+
+The following equations display the matrix and determinant needed to calculate the angular acceleration of the rotary and pendulum arm. 
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630357-e9b0778c-7f59-4aee-9053-9bc50ca84b6b.JPG">
+</p>
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630476-65f73d46-3a66-4d3a-86b7-cc9b41904422.JPG">
+</p>
+
+As aforementioned, the above equations are used to calculate the angular accelerations of both arms. These are shown in Eq. 23 and Eq.24 below.
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630631-db78a98a-f91b-4ef0-b1af-f18fa2c54379.JPG">
+</p>
+
+By substituting x3 in for  and x4 in for  into the above equations, we get the following,
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630661-31f40b5c-72d6-4405-bf81-6e05b3332d98.JPG">
+</p>
+
+Finally, the matrices A and B from the state space Eq. __X__ is shown below in Eq.27.
+
+<p align="center">
+  <img width="800" height="200" src="https://user-images.githubusercontent.com/96322953/146630726-7444538d-d4d3-44e6-8cd1-0c76f339f3e2.JPG">
+</p>
+
+## Conclusion
+The goal of this project was to create a control model that was designed to drive the Furuta Pendulum system. Ideally, the controller designed would be capable of driving the servo motor of the system to keep the pendulum arm balanced. This was accomplished by linearizing the equations of motion derived from the Euler-Lagrange equation. The linearized equations were then represented in state space and moved to a simulation in matlab.
+
+## Appendix: Simulation Code
+<p align="center">
+  <src="https://user-images.githubusercontent.com/96322953/146630827-cbe62ee6-01f7-4f24-b8f4-85e46be2c5b8.JPG">
+</p>
