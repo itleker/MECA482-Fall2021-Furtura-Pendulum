@@ -199,7 +199,15 @@ Finally, the matrices A and B from the state space Eq. __X__ is shown below in E
 </p>
 
 <p align="center">
+  Swing Block Diagram
+</p>
+
+<p align="center">
   <img width="800" height="400" src="https://user-images.githubusercontent.com/96322953/146632913-f0a993d6-1c65-456f-891c-d9550b6ddce2.png">
+</p>
+
+<p align="center">
+  Balance Block Diagram
 </p>
 
 ## Conclusion
