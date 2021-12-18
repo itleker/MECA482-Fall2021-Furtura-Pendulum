@@ -14,9 +14,100 @@ Isaac Leker- James Sandlin- Gaurav Johal- Cole Murdock
 ## Introduction
 The Furuta Pendulum was invented by Katsuhisa Furuta in 1992 and has since been a widely used tool for teaching the principles of control systems design. The device consists of a motor, which is mounted to a base, that rotates about the vertical axis, and an arm which is free to rotate about the horizontal axis. The arm and motor are connected by a horizontal rod that protrudes from the motor. The goal of this project is to devise a system capable of maintaining the arm balanced upright by controlling the rotation of the motor about the vertical axis.
 
-(![Introduction_Meca_482](https://user-images.githubusercontent.com/96322953/146626325-e0b81416-4c41-459f-a649-74dc97ff7b37.JPG)
+<p align="center">
+  <img width="450" height="600" src="https://user-images.githubusercontent.com/96322953/146626325-e0b81416-4c41-459f-a649-74dc97ff7b37.JPG">
+</p>
+
+<p align="center">
+Figure 1. Furuta Pendulum (QUANSER QUBE)
+</p>
 
 ## Modeling
-The picture shown in Figure 1 below shows the rotary inverted pendulum model used for the control system design. The rotary arm, which is connected to the motor, has an arm length of Lr and an angle of __θ__. As the motor rotates in a CCW direction, the angle __θ__  increases. The moment of inertia of the rotary arm is designated by the variable __Jr__. The motor turns in the CCW direction whenever the control voltage is greater than __0__ .
+
+<p align="center">
+  <img width="450" height="500" src="https://user-images.githubusercontent.com/96322953/146627318-57c20370-0e2b-4b98-8e8b-4f3797fe0bff.JPG">
+</p>
+
+<p align="center">
+Table 1. Furuta Pendulum Parameters
+</p>
+
+The picture shown in Figure 1 below shows the rotary inverted pendulum model used for the control system design. The rotary arm, which is connected to the motor, has an arm length of Lr and an angle of ___θ___. As the motor rotates in a CCW direction, the angle ___θ___  increases. The moment of inertia of the rotary arm is designated by the variable ___Jr___. The motor turns in the CCW direction whenever the control voltage is greater than ___0___ .
+
+<p align="center">
+  <img width="450" height="500" src="https://user-images.githubusercontent.com/96322953/146627046-057f346e-d161-4e1e-a95e-93ed5b53fc6c.JPG">
+</p>
+
+<p align="center">
+Figure 2. Rotatry Inverted Pendulum Conventions
+</p>
 
 ## Sensor Calibration
+The focus of this project is to design a functional control system, and simulate the results. Since there is no requirement for implementation of physical hardware, there is no sensor, or sensor calibration.
+
+## Contoller Design and Simulations
+  __a) Equations of Motions__
+The Equations of Motion (EOM) section covers the derivation of equations that describe the motion of both the pendulum and rotary arms with respect to the motor voltage.  The full derivation of these equations begins with the Euler-Lagrange equation, seen below in Eq.1.
+
+<p align="center">
+  <img width="600" height="100" src="https://user-images.githubusercontent.com/96322953/146627269-19ae27b4-30fa-4a1e-81a8-d030ef7beffd.JPG">
+</p>
+
+In this equation, the variables ___qi___ represent what are called generalized coordinates. Because of the nature of our system, it is logical to use polar coordinates. Therefore, the equation for the generalized coordinates is written as 
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628307-b91122d9-7be7-4758-afa2-d34d6dca957a.JPG">
+</p>
+
+Where ___𝜃(t)___ is the angle of the rotary arm and ___𝛼(t)___ is the angle of the inverted pendulum (see Figure 1.)  Please note that Eq.2 is presented with respect to time and that from this point on the nomenclature will be simplified to exclude the (t) term in all variables that are with respect to time. That is to say that ___𝜃=𝜃(t)___ and ___𝛼=𝛼(t)___ .
+
+By combining equations 1 and 2, equations 3 and 4 are derived and shown below.___Q1___ and ___Q2___ represent generalized forces acting on each arm.
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628517-7f7f9099-9111-4fd1-9d92-4a7572ef1d2e.JPG">
+</p>
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628612-4108893f-74c8-44c9-beb4-d13189ff053a.JPG">
+</p>
+
+The Lagrangian of the system is equal to the total kinetic energy of the system minus the total potential energy of the system. It is denoted by the variable L in equations 1-4. The generalized forces acting on each arm ___Q1___, and ___Q2___, are equated to the non-conservative forces acting on each arm. Equations 5 and 6 show this relationship.
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628744-63742d1e-1bb7-4a80-998a-8c242b0a0b3e.JPG">
+</p>
+
+The control variable for this system is the voltage input to the servo motor,___Vm___ . As a torque is applied to the servo, it is opposed by a viscous damping force from both arms. The viscous damping forces for the rotary and pendulum arms are ___Br___ and ___Bp___, respectively. After completing the process of obtaining the Lagrangian from the kinetic and potential energies and computing the various derivatives necessary to calculate the EOM’s, the nonlinear equations of motion are found for both arms. The EOM for the rotary arm is shown in Eq. 7 and the EOM for the pendulum arm is shown in Eq. 8.
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146628841-5d275b02-fbe6-4083-bafb-f37283810320.JPG">
+</p>
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146629002-6d0de230-b902-48b2-bcd9-f147985cf04c.JPG">
+</p>
+
+The torque provided by the servo motor is applied at the base of the motor itself. Eq.9, shown below, describes the torque in terms of the servo motor input voltage Vm, among others.
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146629043-2daea252-52ea-40e3-988f-8748f3de9346.JPG">
+</p>
+
+The typical form of an EOM is shown in Eq.10, where ___Tau1___ is the scale value of torque applied to the rotary arm via the servo motor, ___g(x)___ describes the gravitational function affecting the system, bis the damping coefficient, and ___J___ is the moment of inertia of the system.
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146629223-6505ce85-c257-4795-92b6-b3e2c0f8c9b5.JPG">
+</p>
+
+Eq. 10 is used to generalize the coordinate vector q into the matrix form seen in Eq.11 below,
+
+<p align="center">
+  <img width="600" height="75" src="https://user-images.githubusercontent.com/96322953/146629250-7d504119-25da-4f25-a670-ff61d370181a.JPG">
+</p>
+
+where the inertial matrix is represented by ___D___, the damping matrix is represented by ___C___, the gravitational vector is represented by ___g(q)___, and the applied torque is represented by ___Tau___ .
+
+Finally, the nonlinear EOM’s shown in Eq.7 and Eq.8 can be placed into the matrix form derived above in Eq. 11.
+
+  __b) Linearization__
+In order to linearize the EOM’s for both arms, Eq. 10 is used,
